@@ -12,7 +12,7 @@ void jack_bauer(void)
 
 	for(h =0; h < 24; h++)
 	{
-		for(n = 0; m < 60; m++)
+		for(m = 0; m < 60; m++)
 		{
 			last_digit = h % 10;
 			first_digit = h / 10;
