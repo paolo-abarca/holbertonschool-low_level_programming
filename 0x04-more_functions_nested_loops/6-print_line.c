@@ -3,7 +3,6 @@
 /**
  * print_line - prints underscores depending on the value of n
  * @n: the number of subscripts to print
- * @a: the number of subscripts to print
  *
  */
 
@@ -17,11 +16,12 @@ void print_line(int n)
 
 	else
 	{
-		int a;
-		for (a = 1; a <= n; a++)
-		{
+	int a;
+
+	for (a = 1; a <= n; a++)
+	{
 		_putchar ('_');
-		}
+	}
 		_putchar (10);
 	}
 }
