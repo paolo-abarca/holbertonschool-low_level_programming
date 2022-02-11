@@ -1,42 +1,34 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * main - prints
+ * Return: Always 0
  */
 
 int main(void)
 {
-	int a;
+	int i;
 
-	for (a = 1; a <= 100; a++)
-
-		if (a % 3 == 0 && a % 5 == 0)
+	for (i = 1; i <= 100; i++)
+	{
+		if (i % 3 == 0 && i % 5 != 0)
+		{
+			printf(" Fizz");
+		} else if (i % 5 == 0 && i % 3 != 0)
+		{
+			printf(" Buzz");
+		} else if (i % 3 == 0 && i % 5 == 0)
 		{
 			printf(" FizzBuzz");
-
-		}
-		else
+		} else if (i == 1)
 		{
-			if (a % 3 == 0)
-			{
-				printf(" Fizz");
-			}
-			else
-			{
-				if (a % 5 == 0)
-				{
-					printf(" Buzz");
-				}
-				else
-				{
-				printf(" %d", a);
-				}
-			}
+			printf("%d", i);
+		} else
+		{
+			printf(" %d", i);
 		}
-
-	putchar(10);
+	}
+	printf("\n");
 
 	return (0);
 }
