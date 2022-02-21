@@ -4,15 +4,16 @@
  * _memset - prototype pointer
  * @s: pointer
  * @b: char
- * @n: unsigned int
+ * @n: unsigned in
  * Return: s
  */
 
 char *_memset(char *s, char b, unsigned int n)
 {
-	for ( ; n > 0; s++, n--)
-	{
-		*s = b;
-	}
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		s[i] = b;
+
 	return (s);
 }
