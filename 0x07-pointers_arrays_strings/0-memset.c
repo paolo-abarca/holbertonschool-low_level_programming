@@ -4,7 +4,7 @@
  * _memset - prototype pointer
  * @s: pointer
  * @b: char
- * @n: unsigned int
+ * @n: unsigned int n
  * Return: s
  */
 
