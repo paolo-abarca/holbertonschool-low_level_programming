@@ -5,19 +5,22 @@
  * _strstr - prototype pointer
  * @haystack: pointer
  * @needle: pointer
- * Return: 0
+ * Return: NULL
  */
 
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i;
-	unsigned int j;
+	unsigned int i = 0;
+	unsigned int j = 0;
 	unsigned int counter = 0;
-	unsigned int size;
+	unsigned int size = 0;
 
-	for (size = 0; needle[size]; size++)
-	{}
-	for (i = 0; haystack[i]; i++)
+	while (needle[size])
+	{
+		size++;
+	}
+
+	while (haystack[i])
 	{
 		if (haystack[i] == needle[0])
 		{
@@ -35,6 +38,7 @@ char *_strstr(char *haystack, char *needle)
 				break;
 			}
 		}
+		i++;
 	}
 	return (0);
 }
