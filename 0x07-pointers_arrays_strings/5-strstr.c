@@ -10,17 +10,14 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i = 0;
+	unsigned int i;
 	unsigned int j = 0;
 	unsigned int counter = 0;
-	unsigned int size = 0;
+	unsigned int size;
 
-	while (needle[size])
-	{
-		size++;
-	}
-
-	while (haystack[i])
+	for (size = 0; needle[size]; size++)
+	{}
+	for (i = 0; haystack[i]; i++)
 	{
 		if (haystack[i] == needle[0])
 		{
@@ -38,7 +35,6 @@ char *_strstr(char *haystack, char *needle)
 				break;
 			}
 		}
-		i++;
 	}
-	return (0);
+	return (NULL);
 }
