@@ -5,33 +5,36 @@
  * _strstr - prototype pointer
  * @haystack: pointer
  * @needle: pointer
- * Return: NULL
+ * Return: 0
  */
 
 char *_strstr(char *haystack, char *needle)
 {
-	char *vodka = needle;
-	int flag = 0;
-	unsigned int count = 0;
+	unsigned int i;
+	unsigned int j;
+	unsigned int counter = 0;
+	unsigned int size;
 
-	while (*haystack)
+	for (size = 0; needle[size]; size++)
+	{}
+	for (i = 0; haystack[i]; i++)
 	{
-		while (*vodka != '\0')
+		if (haystack[i] == needle[0])
 		{
-			flag = 0;
-			if (*vodka == *haystack)
+			for (j = 0; needle[j]; j++)
 			{
-				flag = 1;
-				count++;
+				if (haystack[i + j] == needle[j])
+				{
+					counter++;
+					if (counter == size)
+					{
+						return (&haystack[i]);
+					}
+					continue;
+				}
+				break;
 			}
-			if (flag == 0)
-			break;
-			vodka++;
 		}
-		haystack++;
 	}
-	if (*vodka == '\0')
-		return (needle);
-
-	return (NULL);
+	return (0);
 }
