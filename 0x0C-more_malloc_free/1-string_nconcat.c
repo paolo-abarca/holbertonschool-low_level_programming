@@ -15,15 +15,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int lens1, lens2;
 	unsigned int i = 0, a = 0;
 
-	for (lens1 = 0; s1[lens1]; lens1++)
+	for (lens1 = 0; s1 && s1[lens1]; lens1++)
 	{}
-	for (lens2 = 0; s2[lens2]; lens2++)
+	for (lens2 = 0; s2 && s2[lens2]; lens2++)
 	{}
 
-	if (n >= lens2)
-		p = malloc(sizeof(char) * (lens1 + lens2 + 1));
-	else
+	if (n < lens2)
 		p = malloc(sizeof(char) * (lens1 + n + 1));
+	else
+		p = malloc(sizeof(char) * (lens1 + lens2 + 1));
 
 	if (p == NULL)
 		return (NULL);
