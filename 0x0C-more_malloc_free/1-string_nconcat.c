@@ -13,6 +13,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *p;
 	unsigned int lens1, lens2;
+	unsigned int i = 0, a = 0;
 
 	for (lens1 = 0; s1[lens1]; lens1++)
 	{}
@@ -20,45 +21,26 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{}
 
 	if (n >= lens2)
-	{
 		p = malloc(sizeof(char) * (lens1 + lens2 + 1));
-
-		for (lens1 = 0; s1[lens1]; lens1++)
-		{
-			p[lens1] = s1[lens1];
-		}
-		for (lens2 = 0; s2[lens2]; lens2++)
-		{
-			p[lens1 + lens2] = s2[lens2];
-		}
-		p[lens1 + lens2] = s2[lens2];
-
-		return (p);
-	}
-
 	else
-	{
-		for (lens2 = 0; lens2 < n; lens2++)
-		{}
-	}
-
-	p = malloc(sizeof(char) * (lens1 + lens2 + 1));
+		p = malloc(sizeof(char) * (lens1 + n + 1));
 
 	if (p == NULL)
 		return (NULL);
 
-	else
+	while (i < lens1)
 	{
-		for (lens1 = 0; s1[lens1]; lens1++)
-		{
-			p[lens1] = s1[lens1];
-		}
-		for (lens2 = 0 ; s2[lens2] != s2[n]; lens2++)
-		{
-			p[lens1 + lens2] = s2[lens2];
-		}
-		p[lens1 + lens2] = '\0';
+		p[i] = s1[i];
+		i++;
 	}
+
+	while (n < lens2 && i < (lens1 + n))
+		p[i++] = s2[a++];
+
+	while (n >= lens2 && i < (lens1 + lens2))
+		p[i++] = s2[a++];
+
+	p[i] = '\0';
 
 	return (p);
 }
