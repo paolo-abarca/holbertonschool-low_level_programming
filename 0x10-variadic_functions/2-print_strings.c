@@ -15,14 +15,14 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list parametros;
 
 	va_start(parametros, n);
-	
+
 	for (i = 0; i < n; i++)
 	{
 		cadena = va_arg(parametros, char *);
 		if (cadena == NULL)
 			cadena = "(nil)";
 
-		if (separator == NULL )
+		if (separator == NULL)
 			printf("%s", cadena);
 
 		else if (i == 0)
