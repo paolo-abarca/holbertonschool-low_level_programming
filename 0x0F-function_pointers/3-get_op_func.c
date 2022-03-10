@@ -1,18 +1,18 @@
-#include "calc.h"
+#include "3-calc.h"
 
 /**
- * get_op_func - function pointer
- * @s: char
- * Return: NULL
+ * get_op_func - searchs for an integer
+ * @s:string
+ * Return: no return
  */
 
 int (*get_op_func(char *s))(int, int)
 {
-	op_t ops[] = {
-		{"+", op_add},
+		op_t ops[] = {
+		{"*", op_mul},/* {"+", op_add} */
 		{"-", op_sub},
-		{"*", op_mul},
 		{"/", op_div},
+		{"+", op_add},/* {"+", op_div} */
 		{"%", op_mod},
 		{NULL, NULL}
 	};
@@ -26,6 +26,5 @@ int (*get_op_func(char *s))(int, int)
 			return (ops[i].f);
 		i++;
 	}
-
 	return (NULL);
 }
