@@ -18,10 +18,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
-		if (separator == NULL)
-			return;
-
 		valores = va_arg(parametros, int);
+
+		if (separator == NULL)
+			printf("%d", valores);
 
 		if (i == 0)
 			printf("%d", valores);
