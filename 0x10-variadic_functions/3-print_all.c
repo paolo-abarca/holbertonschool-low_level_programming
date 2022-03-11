@@ -9,6 +9,7 @@
 void print_all(const char * const format, ...)
 {
 	int i = 0;
+	int n = 0;
 	int valor_c, valor_i;
 	double valor_f;
 	char *valor_s;
@@ -18,33 +19,36 @@ void print_all(const char * const format, ...)
 
 	va_start(parametros, format);
 
-	if (format)
+	while (format && format[i])
+		i++;
+	while (format && format[n])
 	{
-		while (format[i])
+		if (n == (i - 1))
 		{
-			switch (format[i])
-			{
-				case 'c':
-					valor_c = va_arg(parametros, int);
-					printf("%c", valor_c);
-					break;
-				case 'i':
-					valor_i = va_arg(parametros, int);
-					printf("%s%d", separator, valor_i);
-					break;
-				case 'f':
-					valor_f = va_arg(parametros, double);
-					printf("%s%f", separator, valor_f);
-					break;
-				case 's':
-					valor_s = va_arg(parametros, char *);
-					if (valor_s == NULL)
-						valor_s = "(nil)";
-					printf("%s%s", separator, valor_s);
-					break;
-			}
-			i++;
+			separator = "";
 		}
+		switch (format[n])
+		{
+			case 'c':
+				valor_c = va_arg(parametros, int);
+				printf("%c%s", valor_c, separator);
+				break;
+			case 'i':
+				valor_i = va_arg(parametros, int);
+				printf("%d%s", valor_i, separator);
+				break;
+			case 'f':
+				valor_f = va_arg(parametros, double);
+				printf("%f%s", valor_f, separator);
+				break;
+			case 's':
+				valor_s = va_arg(parametros, char *);
+				if (valor_s == NULL)
+					valor_s = "(nil)";
+				printf("%s%s", valor_s, separator);
+				break;
+		}
+		n++;
 	}
 	va_end(parametros);
 	printf("\n");
