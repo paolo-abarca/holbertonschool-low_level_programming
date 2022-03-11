@@ -8,12 +8,9 @@
 
 void print_all(const char * const format, ...)
 {
-	int i = 0;
-	int n = 0;
-	int valor_c, valor_i;
+	int i = 0, n = 0, valor_c, valor_i;
 	double valor_f;
-	char *valor_s;
-	char *separator = ", ";
+	char *valor_s, *separator = ", ";
 
 	va_list parametros;
 
@@ -24,9 +21,8 @@ void print_all(const char * const format, ...)
 	while (format && format[n])
 	{
 		if (n == (i - 1))
-		{
 			separator = "";
-		}
+
 		switch (format[n])
 		{
 			case 'c':
