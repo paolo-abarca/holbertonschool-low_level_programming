@@ -3,19 +3,17 @@
 /**
  * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
 
 int main(void)
 {
-	int ch;
+	int i;
 
-	for (ch = 48; ch <= 57; ch++)
-	{
-	putchar(ch);
-	}
+	for (i = 48; i <= 57; i++)
+		putchar (i);
 
-	putchar(10);
+	putchar (10);
 
 	return (0);
 }
