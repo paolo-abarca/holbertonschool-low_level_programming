@@ -1,23 +1,22 @@
-#include<stdio.h>
+#include <stdio.h>
 
 /**
  * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
 
 int main(void)
 {
-	char ch = '1';
+	char i;
 
-	for (ch = 'a'; ch <= 'z'; ch++)
-
+	for (i = 97; i <= 122; i++)
 	{
-	if (ch != 'e' && ch != 'q')
-
-	putchar(ch);
+		if (i != 101 && i != 113)
+			putchar (i);
 	}
-	putchar('\n');
+
+	putchar (10);
 
 	return (0);
 }
