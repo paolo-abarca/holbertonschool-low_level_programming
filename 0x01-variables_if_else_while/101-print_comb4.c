@@ -1,37 +1,37 @@
-#include<stdio.h>
+#include <stdio.h>
 
 /**
  * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
 
 int main(void)
 {
-	int  a, b, c;
+	int i, j, k;
 
-	for (a = 48; a <= 55; a++)
+	for (i = 48; i <= 55; i++)
 	{
+		for (j = 49; j <= 56; j++)
+		{
+			for (k = 50; k <= 57; k++)
+			{
+				if (k > j && j > i)
+				{
+					putchar(i);
+					putchar(j);
+					putchar(k);
 
-	for (b = a + 1; b <= 56; b++)
-	{
+					if (i != 55 || j != 56 || k != 57)
+					{
+						putchar(44);
+						putchar(32);
+					}
+				}
+			}
+		}
+	}
 
-	for (c = b + 1; c <= 57; c++)
-	{
-	putchar(a);
-	putchar(b);
-	putchar(c);
-	if (a == 55 && b == 56 && c == 57)
-	{
-	}
-	else
-	{
-	putchar(44);
-	putchar(32);
-	}
-	}
-	}
-	}
 	putchar(10);
 
 	return (0);
